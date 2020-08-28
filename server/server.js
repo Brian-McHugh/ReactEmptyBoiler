@@ -1,12 +1,10 @@
 const express = require("express");
-const path = require("path");
 const app = express();
-const bodyParser = require("body-parser");
 const port = 1234;
-const { postTask, getTasks, deleteTask } = require("../db/query.js");
+const { postTask, getTasks, deleteTask } = require("../db/query");
 
-app.use(express.static(path.join(__dirname, "../client/dist")));
-app.use(bodyParser.json());
+app.use(express.static("../client/dist"));
+app.use(express.json());
 
 app.get("/allTasks", (req, res) => {
   getTasks((err, data) => {
