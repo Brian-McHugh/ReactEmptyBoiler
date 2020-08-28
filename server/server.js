@@ -1,5 +1,6 @@
-const express = require("express");
 require('dotenv').config();
+
+const express = require("express");
 const port = process.env.PORT;
 const { postTask, getTasks, deleteTask } = require("../db/query");
 const app = express();
