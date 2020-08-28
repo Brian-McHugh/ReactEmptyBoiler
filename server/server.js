@@ -1,13 +1,11 @@
 const express = require("express");
-const path = require("path");
-const app = express();
-const bodyParser = require("body-parser");
 require('dotenv').config();
 const port = process.env.PORT;
-const { postTask, getTasks, deleteTask } = require("../db/query.js");
+const { postTask, getTasks, deleteTask } = require("../db/query");
+const app = express();
 
-app.use(express.static(path.join(__dirname, "../client/dist/")));
-app.use(bodyParser.json());
+app.use(express.static("../client/dist/"));
+app.use(express.json());
 
 app.get("/tasks", (req, res) => {
   getTasks()
