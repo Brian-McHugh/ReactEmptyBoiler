@@ -1,10 +1,9 @@
 const express = require('express');
-const path = require('path');
 const app = express();
 const port = 4000;
 const { postTask, getTasks, deleteTask } = require('../db/query');
 
-app.use(express.static(path.join(__dirname, '../client/dist/')));
+app.use(express.static('../client/dist'));
 app.use(express.json());
 
 app.get('/api/tasks', (req, res) => {
